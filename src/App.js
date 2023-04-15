@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
 import './styles.css'
+import avatarImage from './card-avatar.png'
+import coverImage from './card-image.png'
+import backgroundImage from './card-background.jpg'
 
 function App() {
 	const [rotateX, setRotateX] = useState(0)
@@ -10,7 +13,7 @@ function App() {
 	const [gradientAngle, setGradientAngle] = useState(0)
 	const [shinePosition, setShinePosition] = useState({ x: 0, y: 0 })
 
-	const handleMouseMove = (e) => {
+	const handleMouseMove = e => {
 		const rect = cardRef.current.getBoundingClientRect()
 		const x = e.clientX - rect.left - rect.width / 2
 		const y = e.clientY - rect.top - rect.height / 2
@@ -46,10 +49,11 @@ function App() {
 				shinePosition={shinePosition}
 				onMouseMove={handleMouseMove}
 				onMouseEnter={handleMouseEnter}
-				onMouseLeave={handleMouseLeave}>
+				onMouseLeave={handleMouseLeave}
+			>
 				<CoverImage
-					src="/images/card-image.png"
-					alt="Cover"
+					src={coverImage}
+					alt='Cover'
 					gradientAngle={gradientAngle}
 				/>
 				<CardContent>
@@ -63,8 +67,8 @@ function App() {
 					</Text>
 					<Author>
 						<Avatar
-							src="/images/card-avatar.png"
-							alt="Author Avatar"
+							src={avatarImage}
+							alt='Author Avatar'
 							gradientAngle={gradientAngle}
 						/>
 						<AuthorName>Made by PunGrumpy</AuthorName>
@@ -122,7 +126,7 @@ const CoverImage = styled.div`
 	object-fit: cover;
 	border-radius: 10px;
 	position: relative;
-	background-image: url('/images/card-image.png');
+	background-image: url(${coverImage});
 	background-size: 100%;
 
 	&::before {
@@ -193,7 +197,7 @@ const Avatar = styled.div`
 	object-fit: cover;
 	margin-right: 8px;
 	position: relative;
-	background-image: url('/images/card-avatar.png');
+	background-image: url(${avatarImage});
 	background-size: 100%;
 	&::before {
 		content: '';
@@ -225,7 +229,7 @@ const Container = styled.div`
 	align-items: center;
 	min-height: 100vh;
 	background-color: #333;
-	background-image: url('/images/card-background.jpg');
+	background-image: url(${backgroundImage});
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
