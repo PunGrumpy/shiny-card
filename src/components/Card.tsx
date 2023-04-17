@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const coverImage = 'https://via.placeholder.com/360x320'
-const avatarImage = 'https://via.placeholder.com/100x100'
-const backgroundImage = 'https://via.placeholder.com/360x640'
+const coverImage: string = '/card-image.png'
+const avatarImage: string = '/card-avatar.png'
+const backgroundImage: string = '/card-background.jpg'
 
 interface CardProps {
   rotateX: number
@@ -65,6 +65,7 @@ const Card = styled.div<CardProps>`
     inset: 0;
     background: ${({ shinePosition }) =>
       `radial-gradient(circle at ${shinePosition.x}px ${shinePosition.y}px, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 40%)`};
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 `
 
